@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%; /* Ligeiramente mais escuro que branco puro */
+    --foreground: 222.2 47.4% 5%; /* Mais escuro para melhor contraste */
+    --card: 0 0% 100%; /* sk-white-DEFAULT */
+    --card-foreground: 222.2 47.4% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 5%;
+    --primary: 228 70% 57%; /* sk-blue-DEFAULT */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 67% 50%; /* sk-gold-DEFAULT */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 92%; /* Ligeiramente mais escuro */
+    --muted-foreground: 215.4 16.3% 40%; /* Mais contraste */
+    --accent: 210 40% 92%;
+    --accent-foreground: 222.2 47.4% 5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 85%; /* Ligeiramente mais escuro */
+    --input: 214.3 31.8% 85%;
+    --ring: 228 70% 57%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Tema escuro mais equilibrado - cinza escuro mas não preto */
+    --background: 222 15% 12%; /* Cinza escuro mais natural */
+    --foreground: 210 40% 92%; /* Texto bem claro */
+    --card: 222 15% 16%; /* Cards ligeiramente mais claros que o fundo */
+    --card-foreground: 210 40% 92%;
+    --popover: 222 15% 16%;
+    --popover-foreground: 210 40% 92%;
+    --primary: 228 70% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 67% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 15% 20%; /* Muted mais claro que o fundo */
+    --muted-foreground: 215 20.2% 75%; /* Texto muted bem legível */
+    --accent: 222 15% 20%;
+    --accent-foreground: 210 40% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 15% 25%; /* Bordas visíveis mas sutis */
+    --input: 222 15% 25%;
+    --ring: 228 70% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
