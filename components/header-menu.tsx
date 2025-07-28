@@ -65,48 +65,53 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
             marginTop: "0",
           }}
         >
-          {/* Navegação Principal */}
-          <DropdownMenuItem asChild>
-            <Link href="/" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
-              <Home className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-              Home
-            </Link>
-          </DropdownMenuItem>
+          {/* Navegação Principal - apenas visível no mobile */}
+          <div className="md:hidden">
+            <DropdownMenuItem asChild>
+              <Link href="/" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+                <Home className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                Home
+              </Link>
+            </DropdownMenuItem>
 
-          <DropdownMenuItem asChild>
-            <Link
-              href="/templates"
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
-            >
-              <FileText className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-              Templates
-            </Link>
-          </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link
+                href="/templates"
+                className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+              >
+                <FileText className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                Templates
+              </Link>
+            </DropdownMenuItem>
 
-          <DropdownMenuItem asChild>
-            <Link href="/sobre" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
-              <Info className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-              Sobre
-            </Link>
-          </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/sobre" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+                <Info className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                Sobre
+              </Link>
+            </DropdownMenuItem>
 
-          <DropdownMenuItem asChild>
-            <Link href="/faq" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
-              <HelpCircle className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-              FAQ
-            </Link>
-          </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/faq" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+                <HelpCircle className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                FAQ
+              </Link>
+            </DropdownMenuItem>
 
-          <DropdownMenuItem asChild>
-            <Link href="/contato" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
-              <Phone className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-              Contato
-            </Link>
-          </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link
+                href="/contato"
+                className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+              >
+                <Phone className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                Contato
+              </Link>
+            </DropdownMenuItem>
 
-          <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
+            <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
+          </div>
 
-          {/* Ferramentas */}
+          {/* Ferramentas - sempre visível */}
           <DropdownMenuItem
             onClick={() => setSearchOpen(true)}
             className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
@@ -127,18 +132,23 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
 
           <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
 
-          {/* Área do usuário */}
+          {/* Área do usuário - comportamento diferente para mobile/desktop */}
           {user ? (
             <>
-              <DropdownMenuItem asChild>
-                <Link
-                  href="/dashboard"
-                  className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
-                >
-                  <User className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-                  Área do Cliente
-                </Link>
-              </DropdownMenuItem>
+              {/* No mobile, mostrar "Área do Cliente" */}
+              <div className="md:hidden">
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/dashboard"
+                    className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+                  >
+                    <User className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                    Área do Cliente
+                  </Link>
+                </DropdownMenuItem>
+              </div>
+
+              {/* Sair - sempre visível quando logado */}
               <DropdownMenuItem
                 onClick={handleSignOut}
                 className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
@@ -148,18 +158,21 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
               </DropdownMenuItem>
             </>
           ) : (
-            <DropdownMenuItem
-              onClick={onLoginDialogOpen}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
-            >
-              <User className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
-              Login / Registro
-            </DropdownMenuItem>
+            /* Login - apenas no mobile (no desktop está fixo no header) */
+            <div className="md:hidden">
+              <DropdownMenuItem
+                onClick={onLoginDialogOpen}
+                className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+              >
+                <User className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+                Login / Registro
+              </DropdownMenuItem>
+            </div>
           )}
 
           <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
 
-          {/* Configurações */}
+          {/* Configurações - sempre visível */}
           <DropdownMenuItem
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"

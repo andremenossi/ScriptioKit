@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { BriefcaseBusiness } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { BriefcaseBusiness, User } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { useEffect, useState } from "react"
 import type { User as SupabaseUser } from "@supabase/supabase-js"
@@ -34,6 +35,10 @@ export function Navbar() {
     }
   }, [supabase])
 
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+  }
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-sm dark:bg-gray-800 transition-colors duration-300">
@@ -47,7 +52,73 @@ export function Navbar() {
             <span>JuridiDocs</span>
           </Link>
 
+          {/* Navegação Desktop - visível apenas em telas médias e maiores */}
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <Link
+              href="/"
+              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+              prefetch={false}
+            >
+              Home
+            </Link>
+            <Link
+              href="/templates"
+              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+              prefetch={false}
+            >
+              Templates
+            </Link>
+            <Link
+              href="/sobre"
+              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+              prefetch={false}
+            >
+              Sobre
+            </Link>
+            <Link
+              href="/faq"
+              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+              prefetch={false}
+            >
+              FAQ
+            </Link>
+            <Link
+              href="/contato"
+              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
+              prefetch={false}
+            >
+              Contato
+            </Link>
+          </nav>
+
           <div className="flex items-center gap-2">
+            {/* Login/User Desktop - visível apenas em telas médias e maiores */}
+            {!user ? (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsLoginDialogOpen(true)}
+                className="hidden md:flex hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              >
+                <User className="h-5 w-5 gradient-blue-text dark:text-blue-400" />
+                <span className="sr-only">Login/Registro</span>
+              </Button>
+            ) : (
+              <div className="hidden md:flex items-center gap-2">
+                <Link href="/dashboard">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    <User className="h-5 w-5 gradient-blue-text dark:text-blue-400" />
+                    <span className="sr-only">Área do Cliente</span>
+                  </Button>
+                </Link>
+              </div>
+            )}
+
+            {/* Menu Hambúrguer - sempre visível, mas conteúdo diferente para mobile/desktop */}
             <HeaderMenu user={user} onLoginDialogOpen={() => setIsLoginDialogOpen(true)} />
           </div>
         </div>
