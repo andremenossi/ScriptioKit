@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import { Search, Sun, Moon, ShoppingCart, LogOut, Menu } from "lucide-react"
+import { Search, Sun, Moon, ShoppingCart, LogOut, Menu, Home, FileText, Info, HelpCircle, Phone } from "lucide-react"
 import { useTheme } from "next-themes"
 import { GlobalSearch } from "@/components/global-search"
 import { createClient } from "@/lib/supabase/client"
@@ -52,6 +52,48 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
             marginTop: "0",
           }}
         >
+          {/* Navegação Principal */}
+          <DropdownMenuItem asChild>
+            <Link href="/" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+              <Home className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+              Home
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link
+              href="/templates"
+              className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+            >
+              <FileText className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+              Templates
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/sobre" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+              <Info className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+              Sobre
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/faq" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+              <HelpCircle className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+              FAQ
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/contato" className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+              <Phone className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
+              Contato
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
+
+          {/* Ferramentas */}
           <DropdownMenuItem
             onClick={() => setSearchOpen(true)}
             className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
@@ -72,7 +114,8 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
 
           <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
 
-          {user && (
+          {/* Área do usuário */}
+          {user ? (
             <>
               <DropdownMenuItem asChild>
                 <Link
@@ -90,10 +133,20 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
                 <LogOut className="h-4 w-4 mr-2 text-red-600" />
                 Sair
               </DropdownMenuItem>
-              <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
             </>
+          ) : (
+            <DropdownMenuItem
+              onClick={onLoginDialogOpen}
+              className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
+            >
+              <span className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark">👤</span>
+              Login / Registro
+            </DropdownMenuItem>
           )}
 
+          <DropdownMenuSeparator className="bg-gray-200 dark:bg-gray-700" />
+
+          {/* Configurações */}
           <DropdownMenuItem
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"

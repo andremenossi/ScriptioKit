@@ -48,37 +48,6 @@ export function Navbar() {
             <span>JuridiDocs</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link
-              href="/"
-              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-              prefetch={false}
-            >
-              Home
-            </Link>
-            <Link
-              href="/templates"
-              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-              prefetch={false}
-            >
-              Templates
-            </Link>
-            <Link
-              href="/sobre"
-              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-              prefetch={false}
-            >
-              Sobre
-            </Link>
-            <Link
-              href="/faq"
-              className="transition-colors text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-              prefetch={false}
-            >
-              FAQ
-            </Link>
-          </nav>
-
           <div className="flex items-center gap-2">
             {!user && (
               <Button
