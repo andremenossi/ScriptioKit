@@ -14,6 +14,8 @@ import { Badge } from "@/components/ui/badge"
 interface GlobalSearchProps {
   trigger?: React.ReactNode
   placeholder?: string
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 type SearchResult = {
@@ -27,12 +29,20 @@ type SearchResult = {
   icon: React.ReactNode
 }
 
-export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site..." }: GlobalSearchProps) {
+export function GlobalSearch({
+  trigger,
+  placeholder = "Pesquisar em todo o site...",
+  open,
+  onOpenChange,
+}: GlobalSearchProps) {
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<SearchResult[]>([])
   const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [internalOpen, setInternalOpen] = useState(false)
   const supabase = createClient()
+
+  const isOpen = open !== undefined ? open : internalOpen
+  const setIsOpen = onOpenChange || setInternalOpen
 
   // Páginas estáticas do site
   const staticPages = [
@@ -138,7 +148,7 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
   }
 
   const handleResultClick = () => {
-    setOpen(false)
+    setIsOpen(false)
     clearSearch()
   }
 
@@ -156,29 +166,25 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {trigger || (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="hover:bg-sk-gray-100 dark:hover:bg-sk-gray-800 transition-colors"
-          >
-            <Search className="h-5 w-5 text-sk-blue-DEFAULT" />
+          <Button variant="ghost" size="icon" className="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <Search className="h-5 w-5 gradient-blue-text" />
             <span className="sr-only">Pesquisar</span>
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden p-0">
-        <div className="p-4 border-b border-sk-gray-200 dark:border-sk-gray-700">
+      <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden p-0 bg-white dark:bg-gray-900 thin-border border-black dark:border-gray-600 shadow-2xl">
+        <div className="p-4 border-b thin-border border-black dark:border-gray-600">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-sk-gray-500 dark:text-sk-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 dark:text-gray-400" />
             <Input
               type="text"
               placeholder={placeholder}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="pl-10 pr-10 border-sk-gray-300 dark:border-sk-gray-600 bg-sk-white-DEFAULT dark:bg-sk-gray-800 text-sk-gray-900 dark:text-sk-gray-100 focus:border-sk-blue-DEFAULT focus:ring-sk-blue-DEFAULT"
+              className="pl-10 pr-10 thin-border border-black dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white focus:border-blue-600 focus:ring-blue-600"
               autoFocus
             />
             {query && (
@@ -186,7 +192,7 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
                 variant="ghost"
                 size="sm"
                 onClick={clearSearch}
-                className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0 hover:bg-sk-gray-100 dark:hover:bg-sk-gray-700"
+                className="absolute right-1 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0 hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -195,17 +201,17 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
         </div>
 
         <div className="max-h-96 overflow-y-auto">
-          {loading && <div className="p-4 text-center text-sk-gray-500 dark:text-sk-gray-400">Pesquisando...</div>}
+          {loading && <div className="p-4 text-center text-gray-500 dark:text-gray-400">Pesquisando...</div>}
 
           {!loading && query && results.length === 0 && (
-            <div className="p-4 text-center text-sk-gray-500 dark:text-sk-gray-400">
+            <div className="p-4 text-center text-gray-500 dark:text-gray-400">
               Nenhum resultado encontrado para "{query}"
             </div>
           )}
 
           {!loading && results.length > 0 && (
             <div className="p-2">
-              <div className="text-sm text-sk-gray-600 dark:text-sk-gray-400 px-2 py-1 mb-2">
+              <div className="text-sm text-gray-600 dark:text-gray-400 px-2 py-1 mb-2">
                 {results.length} resultado{results.length !== 1 ? "s" : ""} encontrado{results.length !== 1 ? "s" : ""}
               </div>
               {results.map((result) => (
@@ -213,23 +219,27 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
                   key={result.id}
                   href={result.url}
                   onClick={handleResultClick}
-                  className="block p-3 rounded-lg hover:bg-sk-gray-100 dark:hover:bg-sk-gray-800 transition-colors"
+                  className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1 text-sk-blue-DEFAULT">{result.icon}</div>
+                    <div className="flex-shrink-0 mt-1 gradient-blue-text">{result.icon}</div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-sk-gray-900 dark:text-sk-gray-100">{result.title}</h3>
-                        <Badge variant="outline" className="ml-2 text-xs">
+                        <h3 className="font-semibold text-black dark:text-white">{result.title}</h3>
+                        <Badge
+                          variant="outline"
+                          className="ml-2 text-xs thin-border border-gray-400 dark:border-gray-500"
+                        >
                           {getTypeLabel(result.type)}
                         </Badge>
                       </div>
-                      <p className="text-sm text-sk-gray-600 dark:text-sk-gray-400 line-clamp-2 mt-1">
-                        {result.description}
-                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mt-1">{result.description}</p>
                       <div className="flex items-center gap-2 mt-2">
                         {result.category && (
-                          <Badge variant="secondary" className="text-xs">
+                          <Badge
+                            variant="secondary"
+                            className="text-xs bg-gray-200 dark:bg-gray-700 text-black dark:text-white"
+                          >
                             {result.category}
                           </Badge>
                         )}
@@ -238,8 +248,8 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
                             variant={result.isPremium ? "default" : "outline"}
                             className={`text-xs ${
                               result.isPremium
-                                ? "bg-sk-gold-DEFAULT text-sk-gray-900"
-                                : "border-sk-blue-DEFAULT text-sk-blue-DEFAULT"
+                                ? "gradient-blue text-white border-0"
+                                : "thin-border border-green-600 text-green-600 dark:text-green-400"
                             }`}
                           >
                             {result.isPremium ? "Premium" : "Gratuito"}
@@ -254,7 +264,7 @@ export function GlobalSearch({ trigger, placeholder = "Pesquisar em todo o site.
           )}
 
           {!query && (
-            <div className="p-4 text-center text-sk-gray-500 dark:text-sk-gray-400">
+            <div className="p-4 text-center text-gray-500 dark:text-gray-400">
               Digite para pesquisar em todo o site...
             </div>
           )}

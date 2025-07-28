@@ -2,75 +2,79 @@ export default function AboutPage() {
   return (
     <div className="container py-12 md:py-24">
       {/* Título da página: Texto em azul */}
-      <h1 className="text-4xl font-bold text-center mb-8 text-sk-blue-DEFAULT">Sobre a ScriptioKit</h1>
-      <div className="max-w-3xl mx-auto text-lg text-sk-gray-600 dark:text-sk-gray-400 space-y-6">
+      <h1 className="text-4xl font-bold text-center mb-8 text-sk-blue-DEFAULT gradient-blue-text dark:gradient-blue-text-dark">
+        Sobre a JuridiDocs
+      </h1>
+      <div className="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-300 space-y-6">
         <p>
-          Na ScriptioKit, nossa missão é simplificar contratos e documentos jurídicos para pequenos negócios e
+          Na JuridiDocs, nossa missão é simplificar contratos e documentos jurídicos para pequenos negócios e
           freelancers. Entendemos os desafios que empreendedores enfrentam ao lidar com a burocracia legal e estamos
           aqui para oferecer soluções práticas, acessíveis e seguras.
         </p>
         {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Coleta de Informações</h2>
+        <h2 className="text-2xl font-bold gradient-blue-text dark:gradient-blue-text-dark mt-8 mb-4">Nossa Missão</h2>
         <p>
-          Coletamos informações que você nos fornece diretamente ao se registrar, fazer login, comprar modelos ou entrar
-          em contato conosco. Isso pode incluir seu nome, endereço de e-mail e informações de pagamento.
+          Democratizar o acesso a documentos jurídicos de qualidade, oferecendo modelos profissionais criados por
+          especialistas para proteger e impulsionar seu negócio.
         </p>
         <p>
-          Também coletamos automaticamente certas informações quando você visita nosso site, como seu endereço IP, tipo
-          de navegador, páginas visitadas e horários de acesso, através de cookies e tecnologias similares.
+          Acreditamos que todo empreendedor merece ter acesso a ferramentas jurídicas confiáveis, sem a complexidade e
+          os custos elevados tradicionalmente associados a serviços advocatícios.
         </p>
         {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Uso das Informações</h2>
+        <h2 className="text-2xl font-bold gradient-blue-text dark:gradient-blue-text-dark mt-8 mb-4">
+          O que Oferecemos
+        </h2>
         <ul className="list-disc pl-6 space-y-2">
-          <li>Fornecer e manter nossos serviços;</li>
-          <li>Processar suas transações e enviar notificações relacionadas;</li>
-          <li>Melhorar, personalizar e expandir nossos serviços;</li>
-          <li>Comunicar-nos com você, incluindo para fins de suporte ao cliente;</li>
-          <li>Monitorar e analisar tendências, uso e atividades em conexão com nossos serviços;</li>
-          <li>Detectar, investigar e prevenir atividades fraudulentas e outras atividades ilegais.</li>
+          <li>Modelos de contratos comerciais e trabalhistas;</li>
+          <li>Documentos em conformidade com a legislação brasileira;</li>
+          <li>Políticas de privacidade adequadas à LGPD;</li>
+          <li>Termos de uso para websites e aplicativos;</li>
+          <li>Acordos de confidencialidade e muito mais;</li>
+          <li>Suporte especializado para dúvidas sobre os modelos.</li>
         </ul>
         {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Compartilhamento de Informações</h2>
-        <p>Não compartilhamos suas informações pessoais com terceiros, exceto nas seguintes circunstâncias:</p>
+        <h2 className="text-2xl font-bold gradient-blue-text dark:gradient-blue-text-dark mt-8 mb-4">
+          Por que Escolher a JuridiDocs?
+        </h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            Com provedores de serviços que nos auxiliam na operação do site e na prestação de serviços (ex: Supabase
-            para autenticação e banco de dados, Gumroad para processamento de pagamentos);
+            <strong>Qualidade Garantida:</strong> Todos os modelos são elaborados por advogados experientes;
           </li>
-          <li>Para cumprir com obrigações legais ou responder a processos judiciais;</li>
-          <li>Para proteger os direitos, propriedade ou segurança da ScriptioKit, nossos usuários ou o público.</li>
+          <li>
+            <strong>Facilidade de Uso:</strong> Interface intuitiva e documentos fáceis de personalizar;
+          </li>
+          <li>
+            <strong>Preços Acessíveis:</strong> Modelos gratuitos e premium com excelente custo-benefício;
+          </li>
+          <li>
+            <strong>Atualizações Constantes:</strong> Documentos sempre em conformidade com as leis vigentes;
+          </li>
+          <li>
+            <strong>Suporte Dedicado:</strong> Equipe pronta para ajudar com suas dúvidas.
+          </li>
         </ul>
         {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Segurança dos Dados</h2>
+        <h2 className="text-2xl font-bold gradient-blue-text dark:gradient-blue-text-dark mt-8 mb-4">
+          Nosso Compromisso
+        </h2>
         <p>
-          Empregamos medidas de segurança razoáveis para proteger suas informações pessoais contra acesso não
-          autorizado, alteração, divulgação ou destruição. No entanto, nenhum método de transmissão pela internet ou
-          armazenamento eletrônico é 100% seguro.
+          Estamos comprometidos em fornecer documentos jurídicos de alta qualidade que protegem seus interesses e
+          facilitam o crescimento do seu negócio. Nossa equipe trabalha constantemente para manter nossos modelos
+          atualizados e em conformidade com as mudanças na legislação.
         </p>
         {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Seus Direitos</h2>
+        <h2 className="text-2xl font-bold gradient-blue-text dark:gradient-blue-text-dark mt-8 mb-4">
+          Entre em Contato
+        </h2>
         <p>
-          Você tem o direito de acessar, corrigir, atualizar ou solicitar a exclusão de suas informações pessoais. Para
-          exercer esses direitos, entre em contato conosco através dos canais fornecidos em nossa página de contato.
-        </p>
-        {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Alterações a Esta Política</h2>
-        <p>
-          Podemos atualizar nossa Política de Privacidade periodicamente. Notificaremos você sobre quaisquer alterações
-          publicando a nova Política de Privacidade nesta página. Recomendamos que você revise esta Política de
-          Privacidade periodicamente para quaisquer alterações.
-        </p>
-        {/* Títulos de subseções: Texto em azul */}
-        <h2 className="text-2xl font-bold text-sk-blue-DEFAULT mt-8 mb-4">Contato</h2>
-        <p>
-          Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco através do nosso
-          e-mail:
+          Tem alguma dúvida ou sugestão? Adoraríamos ouvir de você! Entre em contato conosco através do nosso e-mail:
           {/* Link de e-mail: Texto em azul no hover */}
           <a
-            href="mailto:contato@scriptiokit.com.br"
-            className="text-sk-blue-DEFAULT hover:underline ml-1 hover:text-sk-blue-DEFAULT/80 transition-colors"
+            href="mailto:contato@juridocs.com.br"
+            className="gradient-blue-text dark:gradient-blue-text-dark hover:underline ml-1 hover:opacity-80 transition-opacity"
           >
-            contato@scriptiokit.com.br
+            contato@juridocs.com.br
           </a>
           .
         </p>

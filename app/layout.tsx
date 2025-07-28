@@ -6,6 +6,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 // Configure Montserrat using @next/font/google
 const montserrat = Montserrat({
@@ -15,20 +16,20 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: "ScriptioKit - Documentos Jurídicos Prontos",
+  title: "JuridiDocs - Documentos Jurídicos Prontos",
   description: "Obtenha modelos de contratos comerciais, trabalhistas e mais para proteger seu negócio.",
   keywords: ["contratos", "documentos jurídicos", "modelos", "negócios", "freelancers", "jurídico"],
   openGraph: {
-    title: "ScriptioKit - Documentos Jurídicos Prontos",
+    title: "JuridiDocs - Documentos Jurídicos Prontos",
     description: "Obtenha modelos de contratos comerciais, trabalhistas e mais para proteger seu negócio.",
-    url: "https://www.scriptiokit.com.br", // Replace with your actual domain
-    siteName: "ScriptioKit",
+    url: "https://www.juridocs.com.br", // Replace with your actual domain
+    siteName: "JuridiDocs",
     images: [
       {
         url: "/placeholder.svg?height=630&width=1200",
         width: 1200,
         height: 630,
-        alt: "ScriptioKit - Documentos Jurídicos Prontos",
+        alt: "JuridiDocs - Documentos Jurídicos Prontos",
       },
     ],
     locale: "pt_BR",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ScriptioKit - Documentos Jurídicos Prontos",
+    title: "JuridiDocs - Documentos Jurídicos Prontos",
     description: "Obtenha modelos de contratos comerciais, trabalhistas e mais para proteger seu negócio.",
     images: ["/placeholder.svg?height=630&width=1200"],
   },
@@ -55,6 +56,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <ScrollToTop />
           <Toaster />
           {/* Google Analytics Placeholder */}
           {process.env.NODE_ENV === "production" && (

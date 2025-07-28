@@ -120,7 +120,7 @@ export default function TemplatesPage() {
         <Button
           variant="outline"
           onClick={clearAllFilters}
-          className="w-full border-sk-blue-DEFAULT text-sk-blue-DEFAULT hover:bg-sk-blue-100 dark:hover:bg-sk-blue-900 bg-transparent"
+          className="w-full border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 bg-white dark:bg-gray-800"
         >
           Limpar todos os filtros ({activeFiltersCount})
         </Button>
@@ -162,12 +162,12 @@ export default function TemplatesPage() {
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
-                  className="w-full border-sk-gray-300 dark:border-sk-gray-600 text-sk-gray-700 dark:text-sk-gray-300 hover:bg-sk-blue-100 dark:hover:bg-sk-blue-900 bg-transparent"
+                  className="w-full border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-900/20 bg-white dark:bg-gray-800"
                 >
                   <Filter className="h-4 w-4 mr-2" />
                   Filtros
                   {activeFiltersCount > 0 && (
-                    <span className="ml-2 bg-sk-blue-DEFAULT text-white rounded-full px-2 py-1 text-xs">
+                    <span className="ml-2 bg-blue-600 text-white rounded-full px-2 py-1 text-xs">
                       {activeFiltersCount}
                     </span>
                   )}

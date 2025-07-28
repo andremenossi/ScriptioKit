@@ -17,7 +17,7 @@ export function PremiumFilter({ selectedTypes, onTypeToggle, freeCounts }: Premi
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-sk-gray-800 dark:text-sk-gray-200">Filtrar por Tipo</h3>
+      <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Filtrar por Tipo</h3>
 
       <div className="flex flex-wrap gap-2">
         {types.map((type) => {
@@ -30,8 +30,8 @@ export function PremiumFilter({ selectedTypes, onTypeToggle, freeCounts }: Premi
               onClick={() => onTypeToggle(type.key)}
               className={`transition-colors ${
                 isSelected
-                  ? "bg-sk-blue-DEFAULT hover:bg-sk-blue-DEFAULT/90 text-white"
-                  : "border-sk-gray-300 dark:border-sk-gray-600 text-sk-gray-700 dark:text-sk-gray-300 hover:bg-sk-blue-100 dark:hover:bg-sk-blue-900"
+                  ? "bg-blue-600 hover:bg-blue-700 text-white border-blue-600"
+                  : "border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-500"
               }`}
             >
               {type.label}
@@ -39,8 +39,8 @@ export function PremiumFilter({ selectedTypes, onTypeToggle, freeCounts }: Premi
                 variant="secondary"
                 className={`ml-2 ${
                   isSelected
-                    ? "bg-white/20 text-white"
-                    : "bg-sk-gray-200 dark:bg-sk-gray-700 text-sk-gray-700 dark:text-sk-gray-300"
+                    ? "bg-white/20 text-white border-0"
+                    : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200"
                 }`}
               >
                 {type.count}

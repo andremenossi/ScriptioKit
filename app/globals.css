@@ -4,48 +4,49 @@
 
 @layer base {
   :root {
-    --background: 0 0% 97%; /* Ligeiramente mais escuro que branco puro */
-    --foreground: 222.2 47.4% 5%; /* Mais escuro para melhor contraste */
-    --card: 0 0% 100%; /* sk-white-DEFAULT */
-    --card-foreground: 222.2 47.4% 5%;
+    /* Tema claro refinado */
+    --background: 0 0% 98%; /* Fundo quase branco */
+    --foreground: 0 0% 8%; /* Texto quase preto */
+    --card: 0 0% 100%; /* Cards brancos */
+    --card-foreground: 0 0% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 5%;
-    --primary: 228 70% 57%; /* sk-blue-DEFAULT */
+    --popover-foreground: 0 0% 8%;
+    --primary: 228 70% 57%; /* Azul de destaque */
     --primary-foreground: 0 0% 100%;
-    --secondary: 40 67% 50%; /* sk-gold-DEFAULT */
+    --secondary: 0 0% 15%; /* Cinza escuro para contraste */
     --secondary-foreground: 0 0% 100%;
-    --muted: 210 40% 92%; /* Ligeiramente mais escuro */
-    --muted-foreground: 215.4 16.3% 40%; /* Mais contraste */
-    --accent: 210 40% 92%;
-    --accent-foreground: 222.2 47.4% 5%;
+    --muted: 0 0% 94%; /* Cinza muito claro */
+    --muted-foreground: 0 0% 25%; /* Cinza escuro para texto */
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 8%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 85%; /* Ligeiramente mais escuro */
-    --input: 214.3 31.8% 85%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0%; /* Bordas pretas finas */
+    --input: 0 0% 90%;
     --ring: 228 70% 57%;
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Tema escuro mais equilibrado - cinza escuro mas não preto */
-    --background: 222 15% 12%; /* Cinza escuro mais natural */
-    --foreground: 210 40% 92%; /* Texto bem claro */
-    --card: 222 15% 16%; /* Cards ligeiramente mais claros que o fundo */
-    --card-foreground: 210 40% 92%;
-    --popover: 222 15% 16%;
-    --popover-foreground: 210 40% 92%;
-    --primary: 228 70% 57%;
+    /* Tema escuro mais equilibrado - cinza médio */
+    --background: 0 0% 12%; /* Fundo cinza médio em vez de muito escuro */
+    --foreground: 0 0% 95%; /* Texto quase branco */
+    --card: 0 0% 16%; /* Cards cinza médio */
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 228 70% 57%; /* Azul de destaque */
     --primary-foreground: 0 0% 100%;
-    --secondary: 40 67% 50%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 222 15% 20%; /* Muted mais claro que o fundo */
-    --muted-foreground: 215 20.2% 75%; /* Texto muted bem legível */
-    --accent: 222 15% 20%;
-    --accent-foreground: 210 40% 92%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 222 15% 25%; /* Bordas visíveis mas sutis */
-    --input: 222 15% 25%;
+    --secondary: 0 0% 85%; /* Cinza claro para contraste */
+    --secondary-foreground: 0 0% 12%;
+    --muted: 0 0% 20%; /* Cinza médio */
+    --muted-foreground: 0 0% 80%; /* Cinza claro para texto */
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 25%; /* Bordas cinza médio */
+    --input: 0 0% 20%;
     --ring: 228 70% 57%;
   }
 }
@@ -57,4 +58,195 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Cores de fundo variadas para tema claro */
+.bg-light-blue {
+  background-color: #f8faff; /* Azul quase branco */
+}
+
+.bg-light-gray {
+  background-color: #fafbfc; /* Cinza muito claro */
+}
+
+.bg-warm-white {
+  background-color: #fefefe; /* Branco quente */
+}
+
+.bg-cool-white {
+  background-color: #f9fafb; /* Branco frio */
+}
+
+/* Classe para cards com altura uniforme */
+.uniform-card {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.uniform-card .card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Efeito de gradiente brilhoso para azuis - APLICADO EM TUDO QUE É AZUL */
+.gradient-blue {
+  background: linear-gradient(45deg, #2a68e1 0%, #4a85f4 50%, #2a68e1 100%);
+  background-size: 200% 200%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.gradient-blue-text {
+  background: linear-gradient(45deg, #2a68e1 0%, #4a85f4 50%, #2a68e1 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Azul mais claro para tema escuro com mesmo efeito brilhoso */
+.gradient-blue-text-dark {
+  background: linear-gradient(45deg, #4a85f4 0%, #6fa8f7 50%, #4a85f4 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.gradient-blue-border {
+  border-image: linear-gradient(45deg, #2a68e1 0%, #4a85f4 50%, #2a68e1 100%) 1;
+  background-size: 200% 200%;
+  animation: shimmer-border 2s ease-in-out infinite;
+}
+
+/* Gradiente para botões no tema escuro */
+.gradient-blue-dark {
+  background: linear-gradient(45deg, #4a85f4 0%, #6fa8f7 50%, #4a85f4 100%);
+  background-size: 200% 200%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer-border {
+  0% {
+    border-image: linear-gradient(45deg, #2a68e1 0%, #4a85f4 50%, #2a68e1 100%) 1;
+  }
+  50% {
+    border-image: linear-gradient(45deg, #4a85f4 0%, #6fa8f7 50%, #4a85f4 100%) 1;
+  }
+  100% {
+    border-image: linear-gradient(45deg, #2a68e1 0%, #4a85f4 50%, #2a68e1 100%) 1;
+  }
+}
+
+/* Animação do dropdown que realmente parece sair de trás do header */
+.dropdown-slide-from-header {
+  animation: slideFromBehindHeader 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: top center;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+  margin-top: 0;
+}
+
+@keyframes slideFromBehindHeader {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scaleY(0);
+    z-index: -1;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-50%) scaleY(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    z-index: 1000;
+  }
+}
+
+/* Header tema escuro - FUNDO CINZA MÉDIO com TEXTO BRANCO */
+.header-dark-bg {
+  background: #1f2937 !important; /* Cinza médio em vez de preto */
+  border-bottom: 1px solid #374151;
+}
+
+/* Forçar texto branco no header escuro */
+.header-dark-bg,
+.header-dark-bg *,
+.header-dark-bg a,
+.header-dark-bg button,
+.header-dark-bg span {
+  color: white !important;
+}
+
+.header-dark-bg a:hover {
+  color: #4a85f4 !important;
+}
+
+/* Menu suspenso com mesmo fundo cinza médio do header */
+.dropdown-header-dark-bg {
+  background: #1f2937 !important; /* MESMO FUNDO DO HEADER */
+  color: white !important;
+  border-color: #374151 !important;
+}
+
+.dropdown-header-dark-bg * {
+  color: white !important;
+}
+
+.dropdown-header-dark-bg a {
+  color: white !important;
+}
+
+.dropdown-header-dark-bg a:hover {
+  color: #4a85f4 !important;
+}
+
+/* Bordas mais finas */
+.thin-border {
+  border-width: 1px;
+}
+
+/* Fix para o corte da letra "g" no hero */
+.hero-title {
+  line-height: 1.1;
+  padding-bottom: 0.2em;
+  overflow: visible;
+}
+
+/* Classes para cards uniformes */
+.uniform-benefit-card {
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.uniform-testimonial-card {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.uniform-testimonial-card .card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

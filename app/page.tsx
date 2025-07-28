@@ -23,72 +23,74 @@ export default async function HomePage() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Linha divisória com gradiente azul - fundo ajustado */}
-      <div className="w-full py-6 bg-sk-white-DEFAULT dark:bg-background">
+      {/* Linha divisória com gradiente azul */}
+      <div className="w-full py-6 bg-warm-white dark:bg-gray-950">
         <div className="w-full h-1" style={{ background: "linear-gradient(to right, #2A68E1, transparent)" }} />
       </div>
 
-      {/* Benefits Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-sk-white-DEFAULT dark:bg-background transition-colors duration-300">
+      {/* Benefits Section - Azul muito claro no tema claro */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50 dark:bg-gray-950 transition-colors duration-300">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl" style={{ color: "#2A68E1" }}>
-                Por que escolher a ScriptioKit?
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl gradient-blue-text dark:gradient-blue-text-dark">
+                Por que escolher a JuridiDocs?
               </h2>
-              <p className="max-w-[900px] text-sk-gray-600 dark:text-sk-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-700 dark:text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Simplificamos o acesso a documentos jurídicos de alta qualidade para que você possa focar no que
                 realmente importa: seu negócio.
               </p>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
-            <Card className="flex flex-col items-center text-center p-6 shadow-sm border border-sk-gray-200 dark:border-sk-gray-600 hover:shadow-md transition-all duration-300 animate-fade-in bg-sk-white-DEFAULT dark:bg-card">
-              <CheckCircle className="h-12 w-12 mb-4" style={{ color: "#2A68E1" }} />
-              <CardTitle className="text-xl font-bold mb-2" style={{ color: "#2A68E1" }}>
+          <div className="mx-auto grid max-w-5xl items-stretch gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
+            <Card className="uniform-benefit-card flex flex-col items-center text-center p-6 shadow-sm thin-border border-gray-300 dark:border-gray-700 hover:shadow-md transition-all duration-300 animate-fade-in bg-white dark:bg-gray-900">
+              <CheckCircle className="h-12 w-12 mb-4 gradient-blue-text dark:gradient-blue-text-dark" />
+              <CardTitle className="text-xl font-bold mb-4 gradient-blue-text dark:gradient-blue-text-dark">
                 Qualidade Garantida
               </CardTitle>
-              <CardDescription className="text-sk-gray-600 dark:text-sk-gray-300">
-                Modelos elaborados por advogados experientes, garantindo conformidade e segurança.
+              <CardDescription className="text-gray-700 dark:text-gray-300 flex-1">
+                Modelos elaborados por advogados experientes, garantindo conformidade e segurança jurídica para seu
+                negócio.
               </CardDescription>
             </Card>
             <Card
-              className="flex flex-col items-center text-center p-6 shadow-sm border border-sk-gray-200 dark:border-sk-gray-600 hover:shadow-md transition-all duration-300 animate-fade-in bg-sk-white-DEFAULT dark:bg-card"
+              className="uniform-benefit-card flex flex-col items-center text-center p-6 shadow-sm thin-border border-gray-300 dark:border-gray-700 hover:shadow-md transition-all duration-300 animate-fade-in bg-white dark:bg-gray-900"
               style={{ animationDelay: "0.1s" }}
             >
-              <Shield className="h-12 w-12 mb-4" style={{ color: "#1F52B3" }} />
-              <CardTitle className="text-xl font-bold mb-2" style={{ color: "#1F52B3" }}>
+              <Shield className="h-12 w-12 mb-4 gradient-blue-text dark:gradient-blue-text-dark" />
+              <CardTitle className="text-xl font-bold mb-4 gradient-blue-text dark:gradient-blue-text-dark">
                 Proteção Completa
               </CardTitle>
-              <CardDescription className="text-sk-gray-600 dark:text-sk-gray-300">
-                Proteja seus interesses, ativos e relacionamentos comerciais com documentos robustos.
+              <CardDescription className="text-gray-700 dark:text-gray-300 flex-1">
+                Proteja seus interesses, ativos e relacionamentos comerciais com documentos robustos e bem estruturados.
               </CardDescription>
             </Card>
             <Card
-              className="flex flex-col items-center text-center p-6 shadow-sm border border-sk-gray-200 dark:border-sk-gray-600 hover:shadow-md transition-all duration-300 animate-fade-in bg-sk-white-DEFAULT dark:bg-card"
+              className="uniform-benefit-card flex flex-col items-center text-center p-6 shadow-sm thin-border border-gray-300 dark:border-gray-700 hover:shadow-md transition-all duration-300 animate-fade-in bg-white dark:bg-gray-900"
               style={{ animationDelay: "0.2s" }}
             >
-              <Handshake className="h-12 w-12 mb-4" style={{ color: "#2A68E1" }} />
-              <CardTitle className="text-xl font-bold mb-2" style={{ color: "#2A68E1" }}>
+              <Handshake className="h-12 w-12 mb-4 gradient-blue-text dark:gradient-blue-text-dark" />
+              <CardTitle className="text-xl font-bold mb-4 gradient-blue-text dark:gradient-blue-text-dark">
                 Facilidade de Uso
               </CardTitle>
-              <CardDescription className="text-sk-gray-600 dark:text-sk-gray-300">
-                Interface intuitiva e modelos fáceis de personalizar para suas necessidades.
+              <CardDescription className="text-gray-700 dark:text-gray-300 flex-1">
+                Interface intuitiva e modelos fáceis de personalizar para suas necessidades específicas e situações
+                únicas.
               </CardDescription>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Featured Templates Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted dark:bg-muted transition-colors duration-300">
+      {/* Featured Templates Section - Cinza muito claro */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl" style={{ color: "#1F52B3" }}>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl gradient-blue-text dark:gradient-blue-text-dark">
                 Modelos em Destaque
               </h2>
-              <p className="max-w-[900px] text-sk-gray-600 dark:text-sk-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="max-w-[900px] text-gray-700 dark:text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Confira alguns dos nossos modelos mais populares e comece a proteger seu negócio hoje mesmo.
               </p>
             </div>
@@ -103,7 +105,7 @@ export default async function HomePage() {
                 />
               ))
             ) : (
-              <p className="col-span-full text-center text-sk-gray-500 dark:text-sk-gray-400">
+              <p className="col-span-full text-center text-gray-500 dark:text-gray-400">
                 Nenhum modelo em destaque encontrado.
               </p>
             )}
@@ -123,69 +125,82 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-sk-white-DEFAULT dark:bg-background transition-colors duration-300">
+      {/* Testimonials Section - Seção escura no tema claro (usada com moderação) */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-900 dark:bg-gray-950 transition-colors duration-300">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl" style={{ color: "#2A68E1" }}>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white dark:gradient-blue-text-dark">
                 O que nossos clientes dizem
               </h2>
-              <p className="max-w-[900px] text-sk-gray-600 dark:text-sk-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Depoimentos de empreendedores que transformaram seus negócios com a ScriptioKit.
+              <p className="max-w-[900px] text-gray-300 dark:text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Depoimentos de empreendedores que transformaram seus negócios com a JuridiDocs.
               </p>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
-            <Card className="p-6 shadow-sm border border-sk-gray-200 dark:border-sk-gray-600 hover:shadow-md transition-all duration-300 animate-fade-in bg-sk-white-DEFAULT dark:bg-card">
-              <CardContent className="text-center">
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <p className="text-lg font-medium leading-relaxed mb-4 text-sk-gray-800 dark:text-sk-gray-200">
-                  &quot;A ScriptioKit simplificou demais a parte jurídica do meu negócio. Modelos claros e fáceis de
-                  usar!&quot;
-                </p>
-                <p className="text-sm font-semibold" style={{ color: "#1F52B3" }}>
+          <div className="mx-auto grid max-w-5xl items-stretch gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
+            <Card className="uniform-testimonial-card p-6 shadow-sm thin-border border-gray-700 dark:border-gray-700 hover:shadow-md transition-all duration-300 animate-fade-in bg-gray-800 dark:bg-gray-900">
+              <CardContent className="text-center h-full flex flex-col justify-between">
+                <div>
+                  <div className="mb-4">
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                  </div>
+                  <p className="text-lg font-medium leading-relaxed mb-4 text-gray-100 dark:text-gray-200">
+                    &quot;A JuridiDocs simplificou demais a parte jurídica do meu negócio. Modelos claros e fáceis de
+                    usar!&quot;
+                  </p>
+                </div>
+                <p className="text-sm font-semibold text-blue-400 dark:gradient-blue-text-dark">
                   - Ana Paula, Designer Freelancer
                 </p>
               </CardContent>
             </Card>
             <Card
-              className="p-6 shadow-sm border border-sk-gray-200 dark:border-sk-gray-600 hover:shadow-md transition-all duration-300 animate-fade-in bg-sk-white-DEFAULT dark:bg-card"
+              className="uniform-testimonial-card p-6 shadow-sm thin-border border-gray-700 dark:border-gray-700 hover:shadow-md transition-all duration-300 animate-fade-in bg-gray-800 dark:bg-gray-900"
               style={{ animationDelay: "0.1s" }}
             >
-              <CardContent className="text-center">
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <p className="text-lg font-medium leading-relaxed mb-4 text-sk-gray-800 dark:text-sk-gray-200">
-                  &quot;Economizei tempo e dinheiro com os contratos da ScriptioKit. Essencial para qualquer pequeno
-                  negócio.&quot;
-                </p>
-                <p className="text-sm font-semibold" style={{ color: "#2A68E1" }}>
+              <CardContent className="text-center h-full flex flex-col justify-between">
+                <div>
+                  <div className="mb-4">
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                  </div>
+                  <p className="text-lg font-medium leading-relaxed mb-4 text-gray-100 dark:text-gray-200">
+                    &quot;Economizei tempo e dinheiro com os contratos da JuridiDocs. Essencial para qualquer pequeno
+                    negócio.&quot;
+                  </p>
+                </div>
+                <p className="text-sm font-semibold text-blue-400 dark:gradient-blue-text-dark">
                   - João Silva, Proprietário de E-commerce
                 </p>
               </CardContent>
             </Card>
             <Card
-              className="p-6 shadow-sm border border-sk-gray-200 dark:border-sk-gray-600 hover:shadow-md transition-all duration-300 animate-fade-in bg-sk-white-DEFAULT dark:bg-card"
+              className="uniform-testimonial-card p-6 shadow-sm thin-border border-gray-700 dark:border-gray-700 hover:shadow-md transition-all duration-300 animate-fade-in bg-gray-800 dark:bg-gray-900"
               style={{ animationDelay: "0.2s" }}
             >
-              <CardContent className="text-center">
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <Star className="h-5 w-5 text-sk-gold-DEFAULT inline-block mb-2" />
-                <p className="text-lg font-medium leading-relaxed mb-4 text-sk-gray-800 dark:text-sk-gray-200">
-                  &quot;A segurança jurídica que eu precisava, de forma acessível e prática. Recomendo!&quot;
-                </p>
-                <p className="text-sm font-semibold" style={{ color: "#1F52B3" }}>
+              <CardContent className="text-center h-full flex flex-col justify-between">
+                <div>
+                  <div className="mb-4">
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                    <Star className="h-5 w-5 text-yellow-500 inline-block" />
+                  </div>
+                  <p className="text-lg font-medium leading-relaxed mb-4 text-gray-100 dark:text-gray-200">
+                    &quot;A segurança jurídica que eu precisava, de forma acessível e prática. Recomendo para
+                    todos!&quot;
+                  </p>
+                </div>
+                <p className="text-sm font-semibold text-blue-400 dark:gradient-blue-text-dark">
                   - Mariana Costa, Consultora de Marketing
                 </p>
               </CardContent>
@@ -194,17 +209,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Call to Action for Login/Register */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted dark:bg-muted text-foreground transition-colors duration-300">
+      {/* Call to Action for Login/Register - Branco quente */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-900 text-foreground transition-colors duration-300">
         <div className="container px-4 md:px-6 text-center">
-          <h2
-            className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4 animate-fade-in"
-            style={{ color: "#1F52B3" }}
-          >
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-4 animate-fade-in gradient-blue-text dark:gradient-blue-text-dark leading-tight pb-2">
             Comece a proteger seu negócio hoje!
           </h2>
           <p
-            className="max-w-[700px] mx-auto text-lg md:text-xl mb-8 text-sk-gray-600 dark:text-sk-gray-300 animate-fade-in"
+            className="max-w-[700px] mx-auto text-lg md:text-xl mb-8 text-gray-600 dark:text-gray-300 animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
             Crie sua conta gratuita para acessar modelos essenciais e gerenciar seus documentos.

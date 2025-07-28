@@ -5,54 +5,57 @@ export type Database = {
     Tables: {
       templates: {
         Row: {
-          category: string | null
-          description: string | null
-          file_path: string | null
           id: string
-          is_premium: boolean | null
-          gumroad_link: string | null
-          icon: string | null
-          title: string | null
+          title: string
+          description: string | null
+          category: string | null
+          price: number
+          is_premium: boolean
+          file_path: string | null
+          created_at: string
         }
         Insert: {
-          category?: string | null
-          description?: string | null
-          file_path?: string | null
           id?: string
-          is_premium?: boolean | null
-          gumroad_link?: string | null
-          icon?: string | null
-          title?: string | null
+          title: string
+          description?: string | null
+          category?: string | null
+          price?: number
+          is_premium?: boolean
+          file_path?: string | null
+          created_at?: string
         }
         Update: {
-          category?: string | null
-          description?: string | null
-          file_path?: string | null
           id?: string
-          is_premium?: boolean | null
-          gumroad_link?: string | null
-          icon?: string | null
-          title?: string | null
+          title?: string
+          description?: string | null
+          category?: string | null
+          price?: number
+          is_premium?: boolean
+          file_path?: string | null
+          created_at?: string
         }
         Relationships: []
       }
       purchases: {
         Row: {
           id: string
-          template_id: string
           user_id: string
+          template_id: string
+          amount_paid: number | null
           purchased_at: string
         }
         Insert: {
           id?: string
-          template_id: string
           user_id: string
+          template_id: string
+          amount_paid?: number | null
           purchased_at?: string
         }
         Update: {
           id?: string
-          template_id?: string
           user_id?: string
+          template_id?: string
+          amount_paid?: number | null
           purchased_at?: string
         }
         Relationships: [
@@ -77,7 +80,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      register_purchase: {
+        Args: {
+          p_user_email: string
+          p_template_id: string
+          p_amount: number
+        }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
