@@ -9,7 +9,20 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-import { Search, Sun, Moon, ShoppingCart, LogOut, Menu, Home, FileText, Info, HelpCircle, Phone } from "lucide-react"
+import {
+  Search,
+  Sun,
+  Moon,
+  ShoppingCart,
+  LogOut,
+  Menu,
+  Home,
+  FileText,
+  Info,
+  HelpCircle,
+  Phone,
+  User,
+} from "lucide-react"
 import { useTheme } from "next-themes"
 import { GlobalSearch } from "@/components/global-search"
 import { createClient } from "@/lib/supabase/client"
@@ -122,7 +135,7 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
                   href="/dashboard"
                   className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
                 >
-                  <span className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark">👤</span>
+                  <User className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
                   Área do Cliente
                 </Link>
               </DropdownMenuItem>
@@ -139,7 +152,7 @@ export function HeaderMenu({ user, onLoginDialogOpen }: HeaderMenuProps) {
               onClick={onLoginDialogOpen}
               className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors"
             >
-              <span className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark">👤</span>
+              <User className="h-4 w-4 mr-2 gradient-blue-text dark:gradient-blue-text-dark" />
               Login / Registro
             </DropdownMenuItem>
           )}

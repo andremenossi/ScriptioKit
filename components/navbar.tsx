@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { BriefcaseBusiness, User } from "lucide-react"
+import { BriefcaseBusiness } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { useEffect, useState } from "react"
 import type { User as SupabaseUser } from "@supabase/supabase-js"
@@ -49,17 +48,6 @@ export function Navbar() {
           </Link>
 
           <div className="flex items-center gap-2">
-            {!user && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsLoginDialogOpen(true)}
-                className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-              >
-                <User className="h-5 w-5 gradient-blue-text dark:text-blue-400" />
-                <span className="sr-only">Login/Registro</span>
-              </Button>
-            )}
             <HeaderMenu user={user} onLoginDialogOpen={() => setIsLoginDialogOpen(true)} />
           </div>
         </div>
